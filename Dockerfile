@@ -8,7 +8,12 @@ RUN apt-get install -y curl wget libavahi-compat-libdnssd-dev dbus avahi-daemon 
 
 RUN sed -i.bak 's/^#enable-dbus/enable-dbus/' /etc/avahi/avahi-daemon.conf
 
-RUN npm install -g homebridge homebridge-homeassistant
+RUN npm -g install \
+      homebridge \
+      homebridge-homeassistant \
+      homebridge-config-ui \
+      homebridge-mi-air-purifier miio \
+      homebridge-mi-fan && \
 
 USER root
 
